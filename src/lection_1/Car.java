@@ -1,3 +1,4 @@
+package lection_1;
 
 public abstract class Car {
 
@@ -7,11 +8,10 @@ public abstract class Car {
 
     private boolean dirty = false;
 
-    static String type;
+    protected static int count = 0;
 
-
-    static void printType() {  // Статический метод
-        System.out.println(type);
+    public static void printCount() {  // Статический метод
+        System.out.println("Сount of cars: " + count);
     }
 
     public void sayMyNameAndWeight() {
@@ -28,7 +28,7 @@ public abstract class Car {
         return weight;
     }
 
-    protected void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 

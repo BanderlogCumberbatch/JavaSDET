@@ -1,21 +1,24 @@
+import lection_1.Car;
+import lection_1.Passenger;
+import lection_1.Truck;
+
 public class Main {
     public static void main(String[] args) {
         Passenger car1 = new Passenger();
         car1.sayMyNameAndWeight();
 
-        Truck car2 = new Truck();
+        Truck car2 = new Truck("SimpleTruck");
         car2.sayMyNameAndWeight();
 
-        Passenger car3 = new Passenger("Car1");
+        Passenger car3 = new Passenger();
 
         car3.sayMyNameAndWeight();
         car3.wash();
         car3.getDirty();
         car3.wash();
 
-        Truck car4 = new Truck("Car1");
+        Truck car4 = new Truck();
 
-        car4.setName("Truck");
         car4.sayMyNameAndWeight();
         car4.wash();
         car4.load();
@@ -24,8 +27,7 @@ public class Main {
         car4.unload();
         car4.wash();
 
-        Passenger.printType();
-        Truck.printType();
+        Car.printCount();
 
     }
 }

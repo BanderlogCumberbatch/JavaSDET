@@ -1,3 +1,5 @@
+package lection_1;
+
 public class Truck extends Car implements IWashable {
 
     public Truck() {
@@ -5,8 +7,8 @@ public class Truck extends Car implements IWashable {
         setDirty(true);
         setWeight(500);
         setPayload(getWeight()/2);
-        type = "Truck";
-        name = type + name;
+        count++;
+        name = "Truck" + count;
     }
 
     public Truck(String name) {
@@ -14,13 +16,15 @@ public class Truck extends Car implements IWashable {
         setDirty(true);
         setWeight(500);
         setPayload(getWeight()/2);
-        type = "Truck";
-        this.name = type + name;
+        count++;
+        this.name = name;
     }
 
     private int payload;
 
     private boolean loaded = false;
+
+    protected static String type = "Truck";
 
 
     public void load() {

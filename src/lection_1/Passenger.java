@@ -1,23 +1,24 @@
+package lection_1;
+
 public class Passenger extends Car implements IWashable, IPaintable {
 
     public Passenger() {
         super();
         setDirty(true);
-        type = "Passenger";
-        name = type + name;
+        count++;
+        name = "PassengerCar" + count;
     };
 
     public Passenger(String name) {
         super();
         setDirty(true);
-        type = "Passenger";
-        this.name = type + name;
+        count++;
+        this.name = name;
     }
 
     private String color = "Grey";
 
     private int seats = 3;
-
 
     @Override
     public void paint(String color) {
