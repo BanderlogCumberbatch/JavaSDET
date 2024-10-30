@@ -1,36 +1,45 @@
-package lection_1;
+package lection_3;
 
-public class Truck extends Car implements IWashable {
+import java.awt.*;
 
-    public Truck() {
+public class Truck<T extends Number> extends Car implements IWashable, IPaintable<java.awt.Color> { // Generic class; Цвет указывается в Color
+
+    public Truck(T payload) {
         super();
         setDirty(true);
         setWeight(500);
-        setPayload(getWeight()/2);
+        setPayload(payload);
         count++;
         name = "Truck" + count;
     }
 
-    public Truck(String name) {
+    public Truck(String name, T payload) {
         super();
         setDirty(true);
         setWeight(500);
-        setPayload(getWeight()/2);
+        setPayload(payload);
         count++;
         this.name = name;
     }
 
-    private int payload;
+    private java.awt.Color color = new Color(73, 73, 73);
+
+    private T payload;
 
     private boolean loaded = false;
 
     protected static String type = "Truck";
 
+    @Override
+    public void paint(java.awt.Color color) {
+        this.color = color;
+    }
+
 
     public void load() {
         if (!loaded) {
             loaded = true;
-            setWeight(getWeight() + getPayload());
+            setWeight(getWeight() + getPayload().doubleValue());
             System.out.println("Successfully loaded!");
         }
         else {
@@ -41,7 +50,7 @@ public class Truck extends Car implements IWashable {
     public void unload() {
         if (loaded) {
             loaded = false;
-            setWeight(getWeight() - getPayload());
+            setWeight(getWeight() - getPayload().doubleValue());
             System.out.println("Successfully unloaded!");
         }
         else {
@@ -64,11 +73,21 @@ public class Truck extends Car implements IWashable {
         }
     }
 
-    private int getPayload() {
+    public java.awt.Color getColor() {
+        return color;
+    }
+
+    private T getPayload() {
         return payload;
     }
 
-    private void setPayload(int payload) {
-        this.payload = payload;
+    private void setPayload(T payload) {
+        if (payload.doubleValue() < getWeight()) {
+            this.payload = payload;
+        }
+        else {
+            System.out.println("Payload must be lesser than weight!");
+        }
     }
+
 }
