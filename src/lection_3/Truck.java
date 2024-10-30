@@ -28,7 +28,7 @@ public class Truck<T extends Number> extends Car implements IWashable, IPaintabl
 
     private boolean loaded = false;
 
-    protected static String type = "Truck";
+    protected static String type = "Truck-Kun";
 
     @Override
     public void paint(java.awt.Color color) {
