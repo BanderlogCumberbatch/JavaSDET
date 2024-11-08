@@ -1,6 +1,6 @@
-package lection_1;
+package lection_3;
 
-public class Passenger extends Car implements IWashable, IPaintable {
+public class Passenger extends Car implements IWashable, IPaintable<String> { // Цвет указывается в виде строки
 
     public Passenger() {
         super();

@@ -1,10 +1,10 @@
-package lection_1;
+package lection_3;
 
 public abstract class Car {
 
     protected String name = "Car";
 
-    private int weight = 100;
+    private double weight = 100;
 
     private boolean dirty = false;
 
@@ -20,11 +20,11 @@ public abstract class Car {
 
     // Геттеры и сеттеры
 
-    protected void setWeight(int weight) {
+    protected void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 

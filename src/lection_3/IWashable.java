@@ -1,4 +1,4 @@
-package lection_1;
+package lection_3;
 
 public interface IWashable {
 
