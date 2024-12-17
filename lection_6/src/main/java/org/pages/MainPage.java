@@ -20,14 +20,23 @@ public class MainPage {
     @FindBy(xpath = "//a[@data-gclick='showModalFeedback']")
     private SelenideElement feedbackButton;
 
+    /**
+     * Элемент меню "О нас".
+     */
     @FindBy(xpath = "//*[contains(@class,'gh-nav-item--about')]")
     private SelenideElement navItemAbout;
 
     /**
-     * Проверяет, что кнопка Написать нам присутствует и кликабельна.
-     * @return текущйи экземпляр класса
+     * Элемент меню "Услуги".
      */
-    @Step("Проверить, что кнопка Написать нам присутствует и кликабельна")
+    @FindBy(xpath = "//*[contains(@class,'gh-nav-item gh-nav-item--services')]")
+    private SelenideElement navItemServices;
+
+    /**
+     * Проверяет, что кнопка "Написать нам" присутствует и кликабельна.
+     * @return текущий экземпляр класса
+     */
+    @Step("Проверить, что кнопка 'Написать нам' присутствует и кликабельна")
     public FeedbackModal showFeedbackModal() {
         feedbackButton
                 .should(exist)
@@ -37,7 +46,11 @@ public class MainPage {
         return page(FeedbackModal.class);
     }
 
-    @Step("Проверить, что при наведении на элемент меню О нас появляется ссылка Контакты")
+    /**
+     * Проверяет, что при наведении на элемент меню "О нас" появляется ссылка "Контакты".
+     * @return текущий экземпляр класса
+     */
+    @Step("Проверить, что при наведении на элемент меню 'О нас' появляется ссылка 'Контакты'")
     public ContactsPage goToContacts() {
         navItemAbout
                 .shouldHave(text("О нас"))
@@ -46,6 +59,21 @@ public class MainPage {
                 .shouldHave(text("Контакты"))
                 .click();
         return page(ContactsPage.class);
+    }
+
+    /**
+     * Проверяет, что при наведении на элемент меню "Услуги" появляется ссылка "SDET (Разработка в тестировании)".
+     * @return текущий экземпляр класса
+     */
+    @Step("Проверить, что при наведении на элемент меню 'Услуги' появляется ссылка 'SDET (Разработка в тестировании)'")
+    public SDETPage goToSDET() {
+        navItemServices
+                .shouldHave(text("Услуги"))
+                .hover();
+        $(By.linkText("SDET (Разработка в тестировании)"))
+                .shouldHave(text("SDET (Разработка в тестировании)"))
+                .click();
+        return page(SDETPage.class);
     }
 
 }

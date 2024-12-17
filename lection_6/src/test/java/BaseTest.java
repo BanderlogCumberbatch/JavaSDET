@@ -1,8 +1,14 @@
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.BeforeClass;
 
+/**
+ * Базовый класс для тестов.
+ */
 public class BaseTest {
 
+    /**
+     * Действия при инициализации.
+     */
     @BeforeClass
     void initBeforeClass() {
         Configuration.baseUrl = "https://www.simbirsoft.com";
